@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-ERP Intelligence Workbench</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f4f7fb;color:#172033}.app{max-width:1450px;margin:20px auto;background:#fff;border:1px solid #dfe5ec;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(15,23,42,.06)}
+.head{padding:20px;border-bottom:1px solid #e5e9ef;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.ey{font-size:11px;font-weight:800;color:#64748b;letter-spacing:.09em;text-transform:uppercase}.title{font-size:24px;font-weight:850;margin-top:4px}.sub{font-size:13px;color:#64748b;margin-top:5px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer;min-height:40px}.btn:hover{background:#f8fafc}.primary{background:#2563eb;color:#fff;border-color:#2563eb}.layout{display:grid;grid-template-columns:210px minmax(0,1fr);min-height:720px}.side{background:#f8fafc;border-right:1px solid #e5e9ef;padding:12px}.nav{width:100%;border:0;background:transparent;text-align:left;padding:11px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700;margin-bottom:3px}.nav.active,.nav:hover{background:#e8f0ff;color:#1d4ed8}.nav small{display:block;color:#64748b;font-size:10px;margin-top:3px;font-weight:500}.main{padding:20px;min-width:0}.page{display:none}.page.active{display:block}.pagehead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}.ptitle{font-size:19px;font-weight:800}.psub{font-size:11px;color:#64748b;margin-top:4px}.smart{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0;padding:10px;background:#f8fafc;border:1px solid #e3e8ef;border-radius:10px}.smart button{border:1px solid #d7dee8;background:#fff;border-radius:7px;padding:8px 10px;font-size:11px;cursor:pointer}.smart button b{margin-left:4px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:13px}.card{border:1px solid #e1e6ed;border-radius:9px;padding:12px}.label{font-size:10px;color:#64748b}.value{font-size:18px;font-weight:850;margin-top:4px}.desc{font-size:10px;color:#64748b;margin-top:4px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:13px}.field{border:1px solid #e1e6ed;border-radius:8px;padding:11px}.field label{display:block;font-size:10px;color:#64748b;font-weight:700;margin-bottom:5px}.field input,.field select{width:100%;padding:9px;border:1px solid #cbd5e1;border-radius:7px;font-size:12px}.table{border:1px solid #e1e6ed;border-radius:9px;overflow:auto;margin-top:13px}.table table{border-collapse:collapse;width:100%;min-width:760px;font-size:11px}.table th,.table td{padding:9px;border-bottom:1px solid #edf0f4;text-align:left}.table th{background:#f8fafc;color:#64748b;font-size:9px}.pill{display:inline-block;padding:4px 7px;border-radius:999px;background:#f1f5f9;font-size:9px}.red{background:#fee2e2;color:#991b1b}.amber{background:#fef3c7;color:#92400e}.green{background:#dcfce7;color:#166534}.blue{background:#dbeafe;color:#1e40af}.flow{display:flex;gap:6px;align-items:center;overflow:auto;margin-top:13px;padding-bottom:4px}.node{border:1px solid #cbd5e1;border-radius:8px;padding:9px 11px;white-space:nowrap;font-size:10px}.node.live{background:#eff6ff;border-color:#60a5fa;color:#1d4ed8;font-weight:800}.arrow{color:#94a3b8}.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.panel{border:1px solid #e1e6ed;border-radius:10px;padding:12px}.panel h3{font-size:12px;margin:0 0 8px}.list{display:grid;gap:6px}.row{display:flex;justify-content:space-between;gap:8px;padding:8px;border-radius:7px;background:#f8fafc;font-size:10px}.row span:last-child{font-weight:750}.trace{margin-top:13px;padding:12px;border:1px solid #dbe3ec;border-radius:10px;background:#fbfdff}.trace-title{font-size:11px;font-weight:800}.trace-flow{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.trace-flow span{padding:6px 8px;background:#fff;border:1px solid #d8e0e9;border-radius:6px;font-size:9px}.result{margin-top:12px;padding:12px;border-radius:9px;background:#f8fafc;font-size:10px;line-height:1.55}.result b{font-size:11px}.modal{display:none;margin-top:11px;padding:12px;border:1px solid #93c5fd;background:#eff6ff;border-radius:9px;font-size:10px;line-height:1.55}.modal.show{display:block}.bottom{margin-top:15px;display:flex;justify-content:space-between;gap:8px}.note{margin-top:12px;padding:10px;border-radius:8px;background:#f8fafc;font-size:9px;color:#64748b}.hidden{display:none!important}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{display:flex;overflow:auto;border-right:0;border-bottom:1px solid #e5e9ef;gap:3px}.nav{min-width:140px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.grid,.cards,.split{grid-template-columns:1fr}.main{padding:13px}.title{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="head">
+<div><div class="ey">Pre-ERP Intelligence Workbench</div><div class="title">Business Discovery → ERP Blueprint</div><div class="sub">A functional consultant, BA and project planning workspace before ERP implementation.</div></div>
+<div class="actions"><button class="btn" id="scan">⚡ Analyze Business</button><button class="btn" id="simulate">▶ Simulate</button><button class="btn primary" id="blueprint">Generate Blueprint</button></div>
+</header>
+<div class="layout">
+<aside class="side">
+<button class="nav active" data-page="overview">Business Overview<small>Company profile & scope</small></button>
+<button class="nav" data-page="requirements">Requirements<small>Capture everything</small></button>
+<button class="nav" data-page="process">Processes<small>AS-IS business flow</small></button>
+<button class="nav" data-page="objects">Business Objects<small>Masters & transactions</small></button>
+<button class="nav" data-page="controls">Controls<small>Rules & approvals</small></button>
+<button class="nav" data-page="simulation">Simulation<small>Test the business</small></button>
+<button class="nav" data-page="gaps">Gap Analysis<small>Find missing capability</small></button>
+<button class="nav" data-page="tobe">TO-BE Design<small>Future process</small></button>
+<button class="nav" data-page="erp">ERP Blueprint<small>Modules & DocTypes</small></button>
+<button class="nav" data-page="project">Project Readiness<small>Tasks & implementation</small></button>
+</aside>
+<main class="main">
+
+<section class="page active" id="overview">
+<div class="pagehead"><div><div class="ptitle">Business Overview</div><div class="psub">Start with the customer's business—not ERP terminology.</div></div></div>
+<div class="smart"><button data-smart="profile">Business Profile <b>✓</b></button><button data-smart="scope">Scope <b>14</b></button><button data-smart="locations">Locations <b>3</b></button><button data-smart="users">User Groups <b>8</b></button><button data-smart="risk">Business Risks <b>7</b></button><button data-smart="readiness">Readiness <b>72%</b></button></div>
+<div class="cards"><div class="card"><div class="label">Industry</div><div class="value">Manufacturing</div><div class="desc">Automotive components</div></div><div class="card"><div class="label">Companies</div><div class="value">3</div><div class="desc">Separate business entities</div></div><div class="card"><div class="label">Employees</div><div class="value">480</div><div class="desc">Production + office</div></div><div class="card"><div class="label">Locations</div><div class="value">3</div><div class="desc">Plants / warehouses</div></div></div>
+<div class="grid"><div class="field"><label>Business Name</label><input value="ABC Automotive Components"></div><div class="field"><label>Current System</label><input value="Tally + Excel + manual registers"></div><div class="field"><label>Implementation Goal</label><select><option>Integrated ERP</option><option>Replace legacy system</option><option>Process standardization</option></select></div></div>
+<div class="result"><b>Consultant insight:</b> The business has multiple systems and manual handoffs. Before ERP configuration, requirements need to be separated into process, data, control, reporting, integration and change-management requirements.</div>
+</section>
+
+<section class="page" id="requirements">
+<div class="pagehead"><div><div class="ptitle">Requirement Register</div><div class="psub">Capture the complete customer requirement—not only functional modules.</div></div><button class="btn primary" id="addReq">+ Add Requirement</button></div>
+<div class="smart"><button data-smart="functional">Functional <b>48</b></button><button data-smart="processreq">Process <b>21</b></button><button data-smart="datareq">Data <b>12</b></button><button data-smart="reportreq">Reports <b>16</b></button><button data-smart="integrationreq">Integration <b>9</b></button><button data-smart="compliance">Compliance <b>8</b></button><button data-smart="nonfunctional">Non-Functional <b>7</b></button><button data-smart="future">Future <b>11</b></button></div>
+<div class="table"><table><thead><tr><th>ID</th><th>Customer Requirement</th><th>Area</th><th>Priority</th><th>Source</th><th>Traceability</th><th>Status</th></tr></thead><tbody>
+<tr><td>REQ-001</td><td>Customer order must check stock before confirmation</td><td>Sales</td><td><span class="pill red">Critical</span></td><td>Workshop</td><td>Process → Rule → ERP</td><td>Validated</td></tr>
+<tr><td>REQ-002</td><td>Track material sent to subcontractor</td><td>Subcontracting</td><td><span class="pill red">Critical</span></td><td>Interview</td><td>Process → Transaction</td><td>Validated</td></tr>
+<tr><td>REQ-003</td><td>Quality rejection must affect stock and reporting</td><td>Quality</td><td><span class="pill amber">High</span></td><td>Workshop</td><td>Rule → Stock → Report</td><td>Open</td></tr>
+<tr><td>REQ-004</td><td>Management needs plant-wise profitability</td><td>Reporting</td><td><span class="pill amber">High</span></td><td>Management</td><td>Data → GL → Report</td><td>Open</td></tr>
+</tbody></table></div>
+<div class="trace"><div class="trace-title">Requirement Traceability</div><div class="trace-flow"><span>Requirement</span><span>Business Process</span><span>Business Object</span><span>Rule</span><span>ERP Module</span><span>DocType</span><span>Field</span><span>Report</span><span>Test Case</span><span>Project Task</span></div></div>
+</section>
+
+<section class="page" id="process">
+<div class="pagehead"><div><div class="ptitle">AS-IS Process Model</div><div class="psub">Model what actually happens, including unofficial workarounds.</div></div></div>
+<div class="smart"><button data-smart="processowner">Process Owners <b>12</b></button><button data-smart="manual">Manual Steps <b>19</b></button><button data-smart="handoff">Handoffs <b>14</b></button><button data-smart="exceptions">Exceptions <b>23</b></button><button data-smart="pain">Pain Points <b>17</b></button></div>
+<div class="flow"><span class="node">Customer PO</span><span class="arrow">→</span><span class="node">Sales</span><span class="arrow">→</span><span class="node">Planning</span><span class="arrow">→</span><span class="node">Purchase</span><span class="arrow">→</span><span class="node">Subcontract</span><span class="arrow">→</span><span class="node">Production</span><span class="arrow">→</span><span class="node">QC</span><span class="arrow">→</span><span class="node">Dispatch</span></div>
+<div class="split"><div class="panel"><h3>Process Health</h3><div class="list"><div class="row"><span>Manual work</span><span>41%</span></div><div class="row"><span>Excel dependency</span><span class="red">High</span></div><div class="row"><span>Process ownership</span><span>76%</span></div><div class="row"><span>Exception handling</span><span class="amber">Weak</span></div></div></div>
+<div class="panel"><h3>Consultant Questions</h3><div class="check"><input type="checkbox" checked> Who starts this process?</div><div class="check"><input type="checkbox" checked> What document triggers it?</div><div class="check"><input type="checkbox"> What happens when something fails?</div><div class="check"><input type="checkbox"> Who approves exceptions?</div><div class="check"><input type="checkbox"> What report proves completion?</div></div></div>
+</section>
+
+<section class="page" id="objects">
+<div class="pagehead"><div><div class="ptitle">Business Objects</div><div class="psub">Define what the ERP must know and track.</div></div></div>
+<div class="smart"><button data-smart="masters">Master Data <b>42</b></button><button data-smart="transactions">Transactions <b>31</b></button><button data-smart="documents">Documents <b>18</b></button><button data-smart="resources">Resources <b>15</b></button><button data-smart="assets">Assets <b>11</b></button><button data-smart="relationships">Relationships <b>36</b></button></div>
+<div class="table"><table><thead><tr><th>Business Object</th><th>Type</th><th>Key Data</th><th>Used By</th><th>Lifecycle</th></tr></thead><tbody>
+<tr><td>Customer</td><td>Master</td><td>Address, GST, Credit, Terms</td><td>Sales, Finance</td><td>Active / Blocked</td></tr>
+<tr><td>Item</td><td>Master</td><td>UOM, BOM, Tax, Warehouse</td><td>All Operations</td><td>Active / Obsolete</td></tr>
+<tr><td>Sales Order</td><td>Transaction</td><td>Customer, Item, Qty, Rate</td><td>Planning, Delivery, Finance</td><td>Draft → Closed</td></tr>
+<tr><td>Subcontract Job</td><td>Transaction</td><td>Supplier, Material, Qty, Process</td><td>Purchase, Stock, QC</td><td>Issue → Receipt</td></tr>
+<tr><td>Quality Inspection</td><td>Transaction</td><td>Parameters, Result, Rejection</td><td>Production, Stock</td><td>Open → Accepted / Rejected</td></tr>
+</tbody></table></div></section>
+
+<section class="page" id="controls">
+<div class="pagehead"><div><div class="ptitle">Business Controls</div><div class="psub">Capture rules, approvals, segregation of duties and exception handling.</div></div></div>
+<div class="smart"><button data-smart="approvals">Approvals <b>14</b></button><button data-smart="validation">Validations <b>22</b></button><button data-smart="authority">Authority Matrix <b>9</b></button><button data-smart="sod">Segregation of Duties <b>6</b></button><button data-smart="sla">SLAs <b>8</b></button><button data-smart="alerts">Alerts <b>13</b></button></div>
+<div class="table"><table><thead><tr><th>Rule</th><th>When</th><th>Condition</th><th>Action</th><th>Owner</th></tr></thead><tbody>
+<tr><td>Credit approval</td><td>Sales Order</td><td>Outstanding exceeds limit</td><td>Hold + approval</td><td>Finance</td></tr>
+<tr><td>Purchase approval</td><td>Purchase Order</td><td>Value &gt; ₹5L</td><td>Manager approval</td><td>Purchase Head</td></tr>
+<tr><td>Quality rejection</td><td>Inspection</td><td>Parameter fails</td><td>Block stock + NCR</td><td>Quality</td></tr>
+<tr><td>Price variance</td><td>Purchase</td><td>&gt;10% from last price</td><td>Alert + approval</td><td>Purchase Head</td></tr>
+</tbody></table></div></section>
+
+<section class="page" id="simulation">
+<div class="pagehead"><div><div class="ptitle">Business Simulation Lab</div><div class="psub">Test customer scenarios before ERP design.</div></div></div>
+<div class="grid"><div class="field"><label>Scenario</label><select id="scenario"><option>Customer order increases 20%</option><option>Supplier delayed by 10 days</option><option>Raw material price increases 15%</option><option>Production capacity decreases 20%</option><option>Customer payment delayed 30 days</option></select></div><div class="field"><label>Simulation Horizon</label><select><option>30 days</option><option>60 days</option><option>90 days</option><option>1 year</option></select></div><div class="field"><label>Compare Against</label><select><option>Current Business</option><option>Proposed To-Be</option></select></div></div>
+<button class="btn primary" id="runSim" style="margin-top:10px">Run Simulation</button><div id="simOut" class="result"><b>Simulation result will appear here.</b><br>No changes are made to the customer's real system.</div></section>
+
+<section class="page" id="gaps">
+<div class="pagehead"><div><div class="ptitle">Gap & Fit Analysis</div><div class="psub">Separate business gaps from ERP gaps.</div></div></div>
+<div class="cards"><div class="card"><div class="label">Business Process Gaps</div><div class="value">7</div><div class="desc">Process redesign</div></div><div class="card"><div class="label">Standard ERP Fit</div><div class="value">74%</div><div class="desc">Use standard capability</div></div><div class="card"><div class="label">Configuration</div><div class="value">17%</div><div class="desc">Workflow / setup / rules</div></div><div class="card"><div class="label">Customization</div><div class="value">9%</div><div class="desc">Needs development</div></div></div>
+<div class="table"><table><thead><tr><th>Requirement</th><th>Business Finding</th><th>ERP Fit</th><th>Resolution</th><th>Priority</th></tr></thead><tbody>
+<tr><td>Customer credit check</td><td>Required before order</td><td><span class="pill green">Standard</span></td><td>Configure workflow</td><td>Critical</td></tr>
+<tr><td>Subcontract material tracking</td><td>Full traceability required</td><td><span class="pill amber">Partial</span></td><td>Configure + test</td><td>Critical</td></tr>
+<tr><td>Special customer portal</td><td>Customer-specific workflow</td><td><span class="pill red">Gap</span></td><td>Customization / integration</td><td>High</td></tr>
+</tbody></table></div></section>
+
+<section class="page" id="tobe">
+<div class="pagehead"><div><div class="ptitle">TO-BE Business Design</div><div class="psub">The future process becomes the implementation baseline.</div></div></div>
+<div class="flow"><span class="node">Demand</span><span class="arrow">→</span><span class="node">Sales Order</span><span class="arrow">→</span><span class="node live">Credit + Availability</span><span class="arrow">→</span><span class="node">Planning</span><span class="arrow">→</span><span class="node">Purchase / Subcontract</span><span class="arrow">→</span><span class="node">Production</span><span class="arrow">→</span><span class="node">Quality</span><span class="arrow">→</span><span class="node">Delivery</span></div>
+<div class="split"><div class="panel"><h3>Future Controls</h3><div class="list"><div class="row"><span>Credit before release</span><span class="green">ON</span></div><div class="row"><span>Availability before promise</span><span class="green">ON</span></div><div class="row"><span>MRP-driven purchase</span><span class="green">ON</span></div><div class="row"><span>Digital QC</span><span class="green">ON</span></div></div></div><div class="panel"><h3>Expected Outcome</h3><div class="list"><div class="row"><span>Manual work</span><span>41% → 18%</span></div><div class="row"><span>Traceability</span><span>62% → 95%</span></div><div class="row"><span>Planning visibility</span><span>48% → 90%</span></div></div></div></div></section>
+
+<section class="page" id="erp">
+<div class="pagehead"><div><div class="ptitle">ERP Blueprint</div><div class="psub">Only now translate business requirements into ERP structure.</div></div></div>
+<div class="smart"><button data-smart="modules">Modules <b>11</b></button><button data-smart="doctypes">DocTypes <b>84</b></button><button data-smart="fields">Fields <b>640</b></button><button data-smart="workflows">Workflows <b>18</b></button><button data-smart="reports">Reports <b>27</b></button><button data-smart="integrations">Integrations <b>9</b></button><button data-smart="custom">Customizations <b>12</b></button></div>
+<div class="table"><table><thead><tr><th>Business Requirement</th><th>Module</th><th>DocType / Object</th><th>Fields / Rules</th><th>Delivery</th></tr></thead><tbody>
+<tr><td>Customer order processing</td><td>Selling</td><td>Sales Order</td><td>Customer, Item, Qty, Credit Rule</td><td>Standard + Configure</td></tr>
+<tr><td>Material planning</td><td>Manufacturing</td><td>Production Plan / Material Request</td><td>Demand, BOM, Stock</td><td>Standard</td></tr>
+<tr><td>Subcontracting</td><td>Buying / Stock</td><td>Subcontracting Transaction</td><td>Issue, Receipt, Consumption</td><td>Configure</td></tr>
+<tr><td>Quality control</td><td>Quality</td><td>Quality Inspection</td><td>Parameters, Result, NCR</td><td>Standard + Configure</td></tr>
+<tr><td>Management profitability</td><td>Accounts / Reporting</td><td>Profitability Report</td><td>Plant, Customer, Product</td><td>Report</td></tr>
+</tbody></table></div>
+<div class="trace"><div class="trace-title">Full Traceability</div><div class="trace-flow"><span>REQ-001</span><span>Sales Process</span><span>Sales Order</span><span>Credit Rule</span><span>Selling</span><span>Sales Order DocType</span><span>Credit Fields</span><span>Approval Workflow</span><span>Test Case</span><span>Project Task</span></div></div></section>
+
+<section class="page" id="project">
+<div class="pagehead"><div><div class="ptitle">Project Readiness</div><div class="psub">Convert the approved blueprint into an implementation project.</div></div></div>
+<div class="cards"><div class="card"><div class="label">Requirements</div><div class="value">132</div><div class="desc">Traceable requirements</div></div><div class="card"><div class="label">Processes</div><div class="value">28</div><div class="desc">AS-IS / TO-BE</div></div><div class="card"><div class="label">Test Cases</div><div class="value">164</div><div class="desc">Generated from requirements</div></div><div class="card"><div class="label">Project Tasks</div><div class="value">96</div><div class="desc">Implementation work</div></div></div>
+<div class="table"><table><thead><tr><th>Workstream</th><th>Tasks</th><th>Owner</th><th>Dependency</th><th>Status</th></tr></thead><tbody>
+<tr><td>Business Process</td><td>14</td><td>Functional Lead</td><td>Discovery</td><td>Ready</td></tr><tr><td>Master Data</td><td>18</td><td>Customer Team</td><td>Data template</td><td>Ready</td></tr><tr><td>Configuration</td><td>22</td><td>ERP Consultant</td><td>TO-BE approval</td><td>Ready</td></tr><tr><td>Customization</td><td>12</td><td>Developer</td><td>Fit-gap approval</td><td>Pending</td></tr><tr><td>Testing / UAT</td><td>20</td><td>QA + Users</td><td>Configuration</td><td>Planned</td></tr><tr><td>Training / Go-Live</td><td>10</td><td>Project Manager</td><td>UAT sign-off</td><td>Planned</td></tr>
+</tbody></table></div>
+<div class="result"><b>PM conclusion:</b> the implementation should start from the traceable business model, where every major requirement has an owner, process, ERP mapping, test path and project task.</div></section>
+
+<div id="modal" class="modal"></div>
+<div class="bottom"><button class="btn" id="prev">← Previous</button><button class="btn primary" id="next">Next →</button></div>
+<div class="note"><b>Design principle:</b> Smart buttons are contextual. They expose related business objects, exceptions, risks, traceability and actions relevant to the current screen. The tool is designed to prevent forgotten requirements before ERP implementation begins.</div>
+</main></div></div>
+<script>
+const root=document.getElementById('preerp-pro');
+let current=0;
+const pages=['overview','requirements','process','objects','controls','simulation','gaps','tobe','erp','project'];
+const modal=document.getElementById('modal');
+function show(i){current=Math.max(0,Math.min(pages.length-1,i));document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(pages[current]).classList.add('active');document.querySelectorAll('.nav').forEach((b,n)=>b.classList.toggle('active',n===current));document.getElementById('prev').disabled=current===0;document.getElementById('next').textContent=current===pages.length-1?'Finish':'Next →';window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav').forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+document.getElementById('prev').addEventListener('click',()=>show(current-1));
+document.getElementById('next').addEventListener('click',()=>{if(current===pages.length-1){modal.innerHTML='<b>Pre-ERP model complete.</b><br>The business can now move into formal ERP selection, fit-gap and implementation planning.';modal.classList.add('show')}else show(current+1)});
+const texts={profile:'Company structure, industry, locations, business model and implementation objectives.',scope:'Scope covers functional, process, data, reporting, integration, compliance, security, non-functional and future requirements.',locations:'Each location becomes part of organization, warehouse, tax, stock, accounting and reporting analysis.',users:'User groups, responsibilities, approval authority and segregation of duties are captured.',risk:'Risks are derived from process gaps, manual work, missing controls, dependencies and scenario outcomes.',readiness:'Readiness measures whether discovery is sufficiently complete to proceed safely into ERP design.',functional:'Business capabilities the ERP must support.',processreq:'End-to-end business process requirements and handoffs.',datareq:'Master, opening, migration and historical data requirements.',reportreq:'Operational, management, statutory and analytical reporting.',integrationreq:'External systems, devices, APIs, banking, tax and other interfaces.',compliance:'Legal, statutory, industry and internal control requirements.',nonfunctional:'Security, performance, availability, usability, auditability and scalability.',future:'Expected growth, new plants, products, markets and future processes.',processowner:'Owners responsible for each process.',manual:'Steps currently performed manually.',handoff:'Where responsibility or data moves between teams.',exceptions:'What happens when the normal process fails.',pain:'User-reported pain points and business impact.',masters:'Customers, suppliers, items, employees, assets, accounts and other masters.',transactions:'Orders, receipts, deliveries, production, payments and other transactions.',documents:'POs, invoices, challans, certificates and controlled documents.',resources:'People, machines, warehouses and capacity.',assets:'Machines, equipment and asset lifecycle.',relationships:'How business objects depend on one another.',approvals:'Approval hierarchy and amount/condition rules.',validation:'Data and transaction validation rules.',authority:'Who can approve what.',sod:'Conflicting responsibilities that should not be held by one user.',sla:'Time-based commitments and escalations.',alerts:'Events requiring notification or action.',modules:'Functional ERP modules derived from validated requirements.',doctypes:'Business objects that need ERP representation.',fields:'Data attributes required to operate and report the business.',workflows:'State transitions and approvals.',reports:'Reports derived from actual business decisions.',integrations:'Systems and devices outside the ERP.',custom:'Requirements that cannot be handled by standard capability.'};
+document.querySelectorAll('[data-smart]').forEach(b=>b.addEventListener('click',()=>{modal.innerHTML='<b>'+b.textContent.replace(/\s+/g,' ').trim()+'</b><br>'+(texts[b.dataset.smart]||'Contextual information for the selected smart button.');modal.classList.add('show')}));
+document.getElementById('runSim').addEventListener('click',()=>{const s=document.getElementById('scenario').value;document.getElementById('simOut').innerHTML='<b>Simulation complete:</b> '+s+'<br><br>The twin recalculates demand, capacity, inventory, purchasing, production, delivery and financial impact. The live ERP is not changed.<br><br><b>Consultant output:</b> affected processes, requirements, risks and controls are added to the traceability model.'});
+document.getElementById('scan').addEventListener('click',()=>{modal.innerHTML='<b>Business analysis complete.</b><br>Detected 132 requirements, 28 processes, 23 exceptions, 7 major gaps and 9 potential integrations. Review Gap Analysis before generating the ERP Blueprint.';modal.classList.add('show')});
+document.getElementById('simulate').addEventListener('click',()=>show(5));
+document.getElementById('blueprint').addEventListener('click',()=>show(8));
+document.getElementById('addReq').addEventListener('click',()=>{modal.innerHTML='<b>New Requirement</b><br>Capture: business need → process → owner → priority → rule → data → ERP mapping → acceptance criteria. This becomes a traceable requirement ID.';modal.classList.add('show')});
+show(0);
+</script>
+</body>
+</html>
